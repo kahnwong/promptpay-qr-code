@@ -30,6 +30,7 @@ import QrcodeVue from 'qrcode.vue'
 import type { Level, RenderAs, GradientType } from 'qrcode.vue'
 import generatePayload from 'promptpay-qr'
 import PromptpayInput, { type PromptpayInputProps } from 'components/PromptpayInput.vue'
+import { useQuasar } from 'quasar'
 
 // qr code config
 const level = ref<Level>('M')
@@ -41,6 +42,7 @@ const gradientStartColor = ref('#000000')
 const gradientEndColor = ref('#38bdf8')
 
 // input struct
+const $q = useQuasar()
 export interface Promptpay {
   id: PromptpayInputProps
   amount: PromptpayInputProps
@@ -48,16 +50,21 @@ export interface Promptpay {
 const promptpay = ref<Promptpay>({
   id: {
     label: 'PromptPay ID (Personal Only)',
-    value: '0000000000000',
+    value: String($q.localStorage.getItem('promptpayID') || ''),
   },
   amount: {
     label: 'Amount (THB)',
-    value: '',
+    value: String($q.localStorage.getItem('promptpayAmount') || ''),
   },
 })
 
 // generate promptpay qr code
 const promptpayPayload = computed(() => {
+  // save to local storage
+  $q.localStorage.set('promptpayID', promptpay.value.id.value)
+  $q.localStorage.set('promptpayAmount', promptpay.value.amount.value)
+
+  // generate payload
   const amount = Number(promptpay.value.amount.value)
   return generatePayload(promptpay.value.id.value, { amount })
 })
