@@ -1,6 +1,6 @@
 <template>
-  <q-page class="column items-center">
-    <div style="margin-top: 150px; margin-bottom: 30px">
+  <q-page class="column items-center justify-evenly">
+    <div class="q-mt-lg">
       <qrcode-vue
         :value="value"
         :level="level"
@@ -9,7 +9,7 @@
         :gradient-type="gradientType"
         :gradient-start-color="gradientStartColor"
         :gradient-end-color="gradientEndColor"
-        :size="500"
+        :size="300"
       />
     </div>
     <div style="width: 250px">
