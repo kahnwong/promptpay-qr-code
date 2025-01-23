@@ -5,7 +5,7 @@
 <script setup lang="ts">
 export interface PromptpayInputProps {
   label: string
-  value: string | number | null
+  value: string
 }
 
 withDefaults(defineProps<PromptpayInputProps>(), {})
