@@ -9,7 +9,7 @@
         :gradient-type="gradientType"
         :gradient-start-color="gradientStartColor"
         :gradient-end-color="gradientEndColor"
-        :size="300"
+        :size="350"
       />
     </div>
     <div style="width: 250px">
