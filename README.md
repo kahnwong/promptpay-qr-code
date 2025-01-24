@@ -1,3 +1,5 @@
 # PromptPay QR Code
 
-PromptPay to QR Code
+## Features
+- PWA
+- Use local storage to store promptpay id & specified amount
