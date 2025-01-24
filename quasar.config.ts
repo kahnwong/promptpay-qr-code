@@ -110,9 +110,9 @@ export default defineConfig((/* ctx */) => {
     //   rootComponent: 'src/App.vue',
     //   router: 'src/router/index',
     //   store: 'src/store/index',
-    //   pwaRegisterServiceWorker: 'src-pwa/register-service-worker',
-    //   pwaServiceWorker: 'src-pwa/custom-service-worker',
-    //   pwaManifestFile: 'src-pwa/manifest.json',
+    pwaRegisterServiceWorker: 'src-pwa/register-service-worker',
+    pwaServiceWorker: 'src-pwa/custom-service-worker',
+    pwaManifestFile: 'src-pwa/manifest.json',
     //   electronMain: 'src-electron/electron-main',
     //   electronPreload: 'src-electron/electron-preload'
     //   bexManifestFile: 'src-bex/manifest.json

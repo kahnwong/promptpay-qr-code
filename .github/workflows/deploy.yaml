@@ -8,7 +8,7 @@ concurrency:
   cancel-in-progress: true
 env:
   PROJECT_NAME: promptpay
-  BUILD_DIR: dist/spa
+  BUILD_DIR: dist/pwa
 jobs:
   publish:
     runs-on: ubuntu-latest
