@@ -9,7 +9,7 @@
         :gradient-type="gradientType"
         :gradient-start-color="gradientStartColor"
         :gradient-end-color="gradientEndColor"
-        :size="350"
+        :size="qrcodeSize"
       />
     </div>
     <div style="width: 250px">
@@ -25,14 +25,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onUnmounted } from 'vue'
 import QrcodeVue from 'qrcode.vue'
 import type { Level, RenderAs, GradientType } from 'qrcode.vue'
 import generatePayload from 'promptpay-qr'
 import PromptpayInput, { type PromptpayInputProps } from 'components/PromptpayInput.vue'
 import { useQuasar } from 'quasar'
 
-// qr code config
+// qr code: config
 const level = ref<Level>('M')
 const renderAs = ref<RenderAs>('svg')
 
@@ -41,12 +41,38 @@ const gradientType = ref<GradientType>('linear')
 const gradientStartColor = ref('#000000')
 const gradientEndColor = ref('#38bdf8')
 
+// qr code: dynamic size
+// <https://stackoverflow.com/a/76662078>
+function useInnerWidth() {
+  const width = ref(window.innerWidth)
+  const syncWidth = () => (width.value = window.innerWidth)
+
+  window.addEventListener('resize', syncWidth)
+  onUnmounted(() => window.removeEventListener('resize', syncWidth))
+
+  return width
+}
+
+const qrcodeSize = computed(() => {
+  const width = useInnerWidth()
+
+  let size = 600
+
+  if (width.value <= 500) {
+    size = 300
+  }
+
+  return size
+})
+
 // input struct
 const $q = useQuasar()
+
 export interface Promptpay {
   id: PromptpayInputProps
   amount: PromptpayInputProps
 }
+
 const promptpay = ref<Promptpay>({
   id: {
     label: 'PromptPay ID (Personal Only)',
