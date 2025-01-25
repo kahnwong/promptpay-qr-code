@@ -1,5 +1,5 @@
 <template>
-  <q-input class="q-pa-md" dense :label="label" v-model="model"></q-input>
+  <q-input class="q-pa-md" dense :label="label" v-model="model" inputmode="numeric"></q-input>
 </template>
 
 <script setup lang="ts">
