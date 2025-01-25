@@ -5,10 +5,10 @@
 <script setup lang="ts">
 export interface PromptpayInputProps {
   label: string
-  value: string
+  value: number
 }
 
 withDefaults(defineProps<PromptpayInputProps>(), {})
 
-const model = defineModel({ type: String })
+const model = defineModel({ type: Number })
 </script>

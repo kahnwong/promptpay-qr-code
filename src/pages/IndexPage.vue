@@ -76,11 +76,11 @@ export interface Promptpay {
 const promptpay = ref<Promptpay>({
   id: {
     label: 'PromptPay ID (Personal Only)',
-    value: String($q.localStorage.getItem('promptpayID') || ''),
+    value: Number(String($q.localStorage.getItem('promptpayID') || '')),
   },
   amount: {
     label: 'Amount (THB)',
-    value: String($q.localStorage.getItem('promptpayAmount') || ''),
+    value: Number(String($q.localStorage.getItem('promptpayAmount') || '')),
   },
 })
 
@@ -92,6 +92,6 @@ const promptpayPayload = computed(() => {
 
   // generate payload
   const amount = Number(promptpay.value.amount.value)
-  return generatePayload(promptpay.value.id.value, { amount })
+  return generatePayload(String(promptpay.value.id.value), { amount })
 })
 </script>
