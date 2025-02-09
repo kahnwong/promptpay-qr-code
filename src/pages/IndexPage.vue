@@ -56,7 +56,7 @@ function useInnerWidth() {
 const qrcodeSize = computed(() => {
   const width = useInnerWidth()
 
-  let size = 600
+  let size = 500
 
   if (width.value <= 500) {
     size = 300
