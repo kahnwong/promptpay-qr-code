@@ -5597,9 +5597,9 @@ vary@~1.1.2:
   integrity sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==
 
 vite-plugin-checker@^0.10.0:
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/vite-plugin-checker/-/vite-plugin-checker-0.10.0.tgz#6730bddc49efe9eb35d6bc3f2f78d1c65ffdb498"
-  integrity sha512-EcAi4M5mzayH386Hc1xWi+vnfl4a+1vrDP9PVEQImUR6tIjItNK6R/98YNnJkaAq1ond2qkA6f+H49aprUgzGA==
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/vite-plugin-checker/-/vite-plugin-checker-0.10.1.tgz#03ea1a341e86d9ba750ed43d8a7296cf8de0d2ee"
+  integrity sha512-imiBsmYTPdjQHIZiEi5BhJ7K8Z/kCjTFMn+Qa4+5ao/a4Yql4yWFcf81FDJqlMiM57iY4Q3Z7PdoEe4KydULYQ==
   dependencies:
     "@babel/code-frame" "^7.27.1"
     chokidar "^4.0.3"
