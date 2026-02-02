@@ -4556,9 +4556,9 @@ punycode@^2.1.0:
   integrity sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==
 
 qrcode.vue@^3.6.0:
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/qrcode.vue/-/qrcode.vue-3.6.0.tgz#d940fe96712922232aa19892bdd68793e62c73e7"
-  integrity sha512-vQcl2fyHYHMjDO1GguCldJxepq2izQjBkDEEu9NENgfVKP6mv/e2SU62WbqYHGwTgWXLhxZ1NCD1dAZKHQq1fg==
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/qrcode.vue/-/qrcode.vue-3.8.0.tgz#129671e2e1cedd1d44bf1e8fb7dd0fa20cb9040a"
+  integrity sha512-+XKbSKvQu158zlHsJm+HObGUQM3Q+9Oq6yb2op/6lMM2gwOiiG9uIhujvrSV5UoTjrzR0BcNxCdW2kk7KE4NEg==
 
 qrcode@^0.9.0:
   version "0.9.0"
