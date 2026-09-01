@@ -1,6 +1,6 @@
 <template>
-  <q-page class="column items-center justify-evenly">
-    <div class="q-mt-lg">
+  <q-page class="column items-center justify-evenly q-px-sm q-py-md">
+    <div class="q-mt-md q-mb-lg">
       <qrcode-vue
         :value="promptpayPayload"
         :level="level"
@@ -12,7 +12,7 @@
         :size="qrcodeSize"
       />
     </div>
-    <div style="width: 250px">
+    <div class="q-mb-md" style="width: 250px">
       <PromptpayInput
         v-for="input in promptpay"
         :key="input.label"
@@ -43,28 +43,34 @@ const gradientStartColor = ref('#000000')
 const gradientEndColor = ref('#38bdf8')
 
 // qr code: dynamic size
-// <https://stackoverflow.com/a/76662078>
-function useInnerWidth() {
-  const width = ref(window.innerWidth)
-  const syncWidth = () => (width.value = window.innerWidth)
-
-  window.addEventListener('resize', syncWidth)
-  onUnmounted(() => window.removeEventListener('resize', syncWidth))
-
-  return width
-}
-
-const qrcodeSize = computed(() => {
-  const width = useInnerWidth()
-
-  let size = 500
-
-  if (width.value <= 500) {
-    size = 300
+// Keep space for the form and the page's Quasar padding at every viewport size.
+function useViewport() {
+  const viewport = ref({ width: window.innerWidth, height: window.innerHeight })
+  const syncViewport = () => {
+    viewport.value = { width: window.innerWidth, height: window.innerHeight }
   }
 
-  return size
+  window.addEventListener('resize', syncViewport)
+  onUnmounted(() => window.removeEventListener('resize', syncViewport))
+
+  return viewport
+}
+
+const viewport = useViewport()
+const maxQrcodeSize = computed(() => {
+  if (viewport.value.width < 600) return 240
+  if (viewport.value.width < 1024) return 320
+  return 400
 })
+
+const qrcodeSize = computed(() =>
+  Math.max(
+    200,
+    Math.floor(
+      Math.min(viewport.value.width - 32, viewport.value.height - 220, maxQrcodeSize.value),
+    ),
+  ),
+)
 
 // input struct
 const $q = useQuasar()
