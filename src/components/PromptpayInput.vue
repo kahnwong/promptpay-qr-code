@@ -3,10 +3,7 @@
 </template>
 
 <script setup lang="ts">
-export interface PromptpayInputProps {
-  label: string
-  value: number
-}
+import type { PromptpayInputProps } from './PromptpayInput.types'
 
 withDefaults(defineProps<PromptpayInputProps>(), {})
 

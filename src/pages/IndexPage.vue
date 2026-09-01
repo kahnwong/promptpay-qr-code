@@ -29,7 +29,8 @@ import { ref, computed, onUnmounted } from 'vue'
 import QrcodeVue from 'qrcode.vue'
 import type { Level, RenderAs, GradientType } from 'qrcode.vue'
 import generatePayload from 'promptpay-qr'
-import PromptpayInput, { type PromptpayInputProps } from 'components/PromptpayInput.vue'
+import PromptpayInput from '../components/PromptpayInput.vue'
+import type { PromptpayInputProps } from '../components/PromptpayInput.types'
 import { useQuasar } from 'quasar'
 
 // qr code: config
